@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #318800;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+span {
+  display: block;
+}
+
+h2 {
+  font-size: 48px;
+}
+
+h1 {
+  display: block;
+  width: 20%;
+  margin: 10px auto;
+  padding: 20px 20px;
+  border: 2px solid #ff2323;
+  border-radius: 2px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  background-color: rgba(255, 158, 158, 0.5);
+  font-size: 40px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  animation-duration: 2s;
+  transition: width 2s ease,
+              color 1s ease,
+              background-color 1s ease 500ms,
+              border 1s ease 100ms;
+
+
+  &:hover,
+  &:active {
+    width: 30%;
+    color: black;
+    background-color: #ff9e9e;
+    border-color: red;
+  }
+}
+
+
+
+@keyframes randomFlip {
+  from {
+    transform: rotateY(180deg);
+  }
+
+  to {
+    transform: rotateY(0deg);
+  }
+}
+
+.card__item {
+  width: 110px;
+  height: 150px;
+  text-align: center;
+  padding: 10px;
+  margin: 10px;
+  background: #FFF;
+  position: relative;
+  box-shadow: 1px 1px 3px #000;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+
+  -webkit-transition: all 1500ms ease;
+  -moz-transition: all 1500ms ease;
+  -o-transition: all 1500ms ease;
+  transition: all 1500ms ease;
+
+
+
+  &_hearts,
+  &_diams {
+    color: #cc0033;
+  }
+
+  &_spades,
+  &_clubs {
+    color: rgba(10, 10, 10, 0.8);
+  }
+
+  &:hover {
+    //transform: rotateY(180deg);
+    animation-duration: 1.5s;
+    animation-name: randomFlip;
+    animation-iteration-count: infinite;
+    animation-delay: 0.2s;
+    animation-direction: alternate;
+  }
+}
+
+.flip {
+  animation-duration: 4s;
+  animation-name: randomFlip;
+  animation-iteration-count: infinite;
+  animation-delay: 0.2s;
+  animation-direction: alternate-reverse;
+}
+
+.front {
+  backface-visibility: hidden;
+
+  &__top {
+    text-align: left;
+    font-size: 20px;
+    position: absolute;
+    top: 3%;
+    left: 4%;
+  }
+
+  &__bottom {
+    text-align: right;
+    font-size: 20px;
+    position: absolute;
+    bottom: 3%;
+    right: 4%;
+  }
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 1px 1px 3px #000;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  border-radius:10px;
+  -moz-border-radius:10px;
+  -webkit-border-radius:10px;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
